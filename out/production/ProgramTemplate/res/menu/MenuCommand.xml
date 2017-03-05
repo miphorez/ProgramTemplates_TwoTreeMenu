@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<menubar name="MENU_COMMAND">
+    <root name="NODE_ROOT_COMMAND_MENU" numNode="-1" title="Меню команд" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Список команд программы">
+
+        <menu name="NODE_CMD_1" numNode="0" title="Раздел Команд 1" allowsChildren="true" namePanel="PANEL_CMD_1" descriptionNode="Раздел Команд 1">
+            <menuitem name="NODE_CMD_11" numNode="1" title="Команда 1-1" allowsChildren="false" namePanel="PANEL_CMD_11" descriptionNode="Выполнение Команды 1-1"/>
+            <menuitem name="NODE_CMD_12" numNode="2" title="Команда 1-2" allowsChildren="false" namePanel="PANEL_CMD_12" descriptionNode="Выполнение Команды 1-2"/>
+        </menu>
+
+        <menu name="NODE_CMD_2" numNode="3" title="Раздел Команд 2" allowsChildren="true" namePanel="PANEL_CMD_2" descriptionNode="Раздел Команд 2">
+            <menuitem name="NODE_CMD_21" numNode="4" title="Команда 2-1" allowsChildren="false" namePanel="PANEL_CMD_21" descriptionNode="Выполнение Команды 2-1"/>
+        </menu>
+
+        <menu name="NODE_CMD_3" numNode="5" title="Раздел Команд 3" allowsChildren="true" namePanel="PANEL_CMD_3" descriptionNode="Раздел Команд 3">
+        </menu>
+
+    </root>
+</menubar>

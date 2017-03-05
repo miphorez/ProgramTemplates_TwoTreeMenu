@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<menubar name="MENU_COMMAND">
+    <root name="NODE_ROOT_PARAMSMENU" title="Меню параметров" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Список настроек программы">
+
+        <menu name="NODE_SET_MODE" title="Установки режимов" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Настрока режимов работы программы">
+            <menuitem name="NODE_SET_MODE_LOG" title="Ведение лог-файла" allowsChildren="false" namePanel="PANEL_SET_PARAM_MODE" descriptionNode="Отображать в лог-файле прохождение сеансов связи"/>
+            <menuitem name="NODE_SET_MODE_SOUND" title="Установка звука" allowsChildren="false" namePanel="PANEL_SET_PARAM_MODE" descriptionNode="Настройка звукового сопровождения выполнения команд"/>
+        </menu>
+
+        <menu name="NODE_SET_SERIAL" title="Настроки подключения" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Настройка COM-порта и подключение к контроллеру">
+            <menuitem name="NODE_SET_SERIAL_COM" title="Установка COM-порта и адреса" allowsChildren="false" namePanel="PANEL_SET_PARAM_SERIAL" descriptionNode="Настройки, связанные с подключением к оборудованию"/>
+        </menu>
+
+        <menu name="NODE_SET_SEANCE" title="Настроки сеансов связи" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Настройка параметров связи для сеансов и сессий связи">
+            <menuitem name="NODE_SET_SEANCE_PARAM" title="Параметры сеансов связи" allowsChildren="false" namePanel="PANEL_SET_PARAM_SEANCE" descriptionNode="Установка тайм-аутов и других параметров сеансов связи"/>
+        </menu>
+
+        <menu name="NODE_SET_ENVIRON" title="Настроки окружения" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Настройка параметров окружения программы">
+            <menuitem name="NODE_SET_ENVIRON_FILEPRG" title="Установка упр.программ по типам" allowsChildren="false" namePanel="PANEL_SET_PARAM_ENVIRON" descriptionNode="Установка bin-файлов упр.программ по типам контроллеров"/>
+        </menu>
+
+        <menu name="NODE_SET_ABOUT" title="О программе" allowsChildren="true" namePanel="PANEL_SET_PARAM_ABOUT" descriptionNode="Информация о назначении программы и история версий">
+        </menu>
+
+    </root>
+</menubar>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<menubar name="MENU_PARAM">
+    <root name="NODE_ROOT_PARAM_MENU" numNode="-1" title="Меню настроек" allowsChildren="true" namePanel="PANEL_NONE" descriptionNode="Список настроек программы">
+
+        <menu name="NODE_PARAM_1" numNode="0" title="Настройка 1" allowsChildren="true" namePanel="PANEL_PARAM_1" descriptionNode="Раздел Настроек 1">
+             </menu>
+
+        <menu name="NODE_PARAM_2" numNode="1" title="Настройка 2" allowsChildren="true" namePanel="PANEL_PARAM_2" descriptionNode="Раздел Настроек 2">
+            <menuitem name="NODE_PARAM_21" numNode="2" title="Настройка 2-1" allowsChildren="false" namePanel="PANEL_PARAM_21" descriptionNode="Раздел Настроек 2-1"/>
+        </menu>
+
+        <menu name="NODE_PARAM_3" numNode="3" title="Настройка 3" allowsChildren="true" namePanel="PANEL_PARAM_3" descriptionNode="Раздел Настроек 3">
+            <menuitem name="NODE_PARAM_31" numNode="4" title="Настройка 3-1" allowsChildren="false" namePanel="PANEL_PARAM_31" descriptionNode="Раздел Настроек 3-1"/>
+            <menuitem name="NODE_PARAM_32" numNode="5" title="Настройка 3-2" allowsChildren="false" namePanel="PANEL_PARAM_32" descriptionNode="Раздел Настроек 3-2"/>
+        </menu>
+
+    </root>
+</menubar>

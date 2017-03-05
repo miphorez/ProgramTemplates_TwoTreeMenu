@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<menubar name="MENU_COMMAND">
+    <root name="NODE_ROOT" title="Меню команд" allowsChildren="true" namePanel="PANEL_MAIN_MENU" descriptionNode="Список команд, исполняемых программой">
+
+        <menu name="NODE_SINGL_CMD" title="Одиночные команды" allowsChildren="true" namePanel="PANEL_MAIN_MENU" descriptionNode="Список одиночных команд">
+            <menuitem name="NODE_CMD_GETVER" title="Номер версии" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Получение версии управляющей программы контроллера"/>
+            <menuitem name="NODE_CMD_GETCRC" title="CRC конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Получение контрольной суммы конфигурации"/>
+            <menuitem name="NODE_CMD_ENDCFG" title="Отключение конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Прекращение действия текущей конфигурации"/>
+            <menuitem name="NODE_CMD_ENDPRG" title="Отключение упр.программы" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Прекращение действия текущей управляющей программы"/>
+            <menuitem name="NODE_CMD_LOADPRG" title="Загрузка упр.программы" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Загрузка управляющей программы в контроллер"/>
+            <menuitem name="NODE_CMD_LOADCFG" title="Загрузка конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Загрузка конфигурации в контроллер"/>
+            <menuitem name="NODE_CMD_SETCFG" title="Подключение конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Подключение установленной конфигурации контроллера"/>
+            <menuitem name="NODE_CMD_SETPRG" title="Подключение упр.программы" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Подключение установленной управляющей программы"/>
+            <menuitem name="NODE_CMD_SETTIME" title="Установка времени" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Установка времени (активация установленной конфигурации)"/>
+        </menu>
+
+        <menu name="NODE_PUTDATA_CMD" title="Пересылка данных" allowsChildren="true" namePanel="PANEL_MAIN_MENU" descriptionNode="Команды программирования контроллера">
+            <menuitem name="NODE_CMD_PRGCFG" title="Передача конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Пересылка в контроллер упр.программы и конфигурации"/>
+            <menuitem name="NODE_CMD_SENDSTR1PU40" title="Передача 1-ой строки в ПУ-40 (LCD)" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Пересылка в контроллер 1-ой строки для ПУ-40 (LCD)"/>
+            <menuitem name="NODE_CMD_SENDSTR2PU40" title="Передача 2-ой строки в ПУ-40 (LCD)" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Пересылка в контроллер 2-ой строки для ПУ-40 (LCD)"/>
+        </menu>
+
+        <menu name="NODE_GETDATA_CMD" title="Получение данных" allowsChildren="true" namePanel="PANEL_MAIN_MENU" descriptionNode="Команды получения данных из контроллера">
+            <menuitem name="NODE_CMD_GETCFG" title="Извлечение конфигурации" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Извлечение конфигурации из контроллера и запись её в bin-файл"/>
+            <menuitem name="NODE_CMD_GETMESS" title="Извлечение журнала" allowsChildren="false" namePanel="PANEL_CONFIG_AND_JOURNAL" descriptionNode="Извлечение журнала событий из АПКП v.5 и запись его в txt-файл"/>
+        </menu>
+
+    </root>
+</menubar>
