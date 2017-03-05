@@ -8,6 +8,7 @@ public enum EPanelParam {
     PANEL_PARAM_3,
     PANEL_PARAM_31,
     PANEL_PARAM_32,
+    PANEL_PARAM_ABOUT,
             ;
 
     static public EPanelParam getType(String str) {

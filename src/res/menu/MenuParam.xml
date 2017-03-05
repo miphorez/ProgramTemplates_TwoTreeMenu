@@ -14,5 +14,8 @@
             <menuitem name="NODE_PARAM_32" numNode="5" title="Настройка 3-2" allowsChildren="false" namePanel="PANEL_PARAM_32" descriptionNode="Раздел Настроек 3-2"/>
         </menu>
 
+        <menu name="NODE_PARAM_ABOUT" numNode="6" title="О программе" allowsChildren="true" namePanel="PANEL_PARAM_ABOUT" descriptionNode="Информация о программе и история версий">
+        </menu>
+
     </root>
 </menubar>

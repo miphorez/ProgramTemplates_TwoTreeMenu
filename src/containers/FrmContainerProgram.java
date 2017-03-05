@@ -58,7 +58,7 @@ public class FrmContainerProgram {
 
         MenuNode itemNode = frmTreeMenuCommand.getNodeByNamePanelAndFocusNode(EPanelCommand.PANEL_CMD_3.name());
         frmTreeMenuCommand.setLastSelectedNode(itemNode);
-        itemNode = frmTreeMenuParam.getNodeByNamePanelAndFocusNode(EPanelParam.PANEL_PARAM_31.name());
+        itemNode = frmTreeMenuParam.getNodeByNamePanelAndFocusNode(EPanelParam.PANEL_PARAM_ABOUT.name());
         frmTreeMenuParam.setLastSelectedNode(itemNode);
 
         goToPanelByMenu(EPanelMenu.PANEL_MENU_COMMAND.name(), false);

@@ -284,27 +284,6 @@ public class UtilsForAll {
         return main.Main.class;
     }
 
-    public static void readResourceFileToTextArea(String strFileNameInResource, JTextArea jTextArea) {
-        InputStream inputStream = getMainClass().getResourceAsStream(strFileNameInResource);
-        Reader reader = null;
-        try {
-            reader = new InputStreamReader(inputStream, "Cp1251");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        String oneLine;
-        jTextArea.setText("");
-        try {
-            while ((oneLine = bufferedReader.readLine()) != null) {
-                jTextArea.append(oneLine + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        jTextArea.setCaretPosition(0);
-    }
-
     public static String getStrFromBufferForLogger(byte[] iBuff, int iBuffLen, boolean modeInOut) {
         String strLogger = "--->>: ";
         if (modeInOut) strLogger = "<<---: ";
