@@ -1,6 +1,7 @@
 package utils;
 
 import main.gui.GUIProgram;
+import org.apache.commons.io.FileUtils;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -8,11 +9,15 @@ import java.awt.*;
 import java.awt.event.InputEvent;
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
 import static utils.ConstantForAll.*;
 import static utils.UtilsFilesAndFolders.delStacklessDirAndFiles;
+import static utils.UtilsFilesAndFolders.getTempDir;
 import static utils.UtilsFilesAndFolders.getTempDirectory;
 
 public class UtilsForAll {
@@ -296,6 +301,30 @@ public class UtilsForAll {
     public static Color getBackgroundTextFildColor() {
         return new Color(229, 241, 251);
     }
+
+    public static String getFileNameResourceImgInTemp(String strImgName) {
+        File file = new File(getFileNameTemp(strImgName));
+        if (!file.exists())
+            if (!copyFileFromResource(RES_IMG+strImgName, getFileNameTemp(strImgName))) return "";
+        return getFileNameTemp(strImgName);
+    }
+
+    public static boolean copyFileFromResource(String strResource, String strFileName) {
+        URL resURL = getMainClass().getResource(strResource);
+        File dest = new File(strFileName);
+        try {
+            FileUtils.copyURLToFile(resURL, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static String getFileNameTemp(String strFileName) {
+        return getTempDir() + "/" + strFileName;
+    }
+
 }
 
 

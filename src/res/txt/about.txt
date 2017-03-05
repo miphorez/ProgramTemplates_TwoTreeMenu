@@ -37,6 +37,17 @@ div {
 Х Windows 7 (x86, x64)<br>
 Х Windows 8 (x86, x64)<br>
 Х Windows 10(x86, x64)<br>
-</p></div>
+</p>
+
+<p>
+<img src="
+gplv3-88x31.png
+" />
+Ёто свободна€ программа, распростран€етс€ на услови€х —тандартной общественной лицензии GNU <b>GPLv3</b>.
+<br>
+»сходные тексты этой программы доступны на <a href="https://github.com/miphorez/ProgramTemplates_TwoTreeMenu.git">GitHube</a>.
+</p>
+
+</div>
  </body>
 </html>

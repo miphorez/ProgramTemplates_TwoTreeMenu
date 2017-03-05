@@ -26,7 +26,7 @@ public class ConstantForAll {
     public static String TXT_ABOUT = "/res/txt/about.txt";
     public static String TXT_HISTORY = "/res/txt/history.txt";
 
-    //директория программы в "моих документах"
+    //директория программы
     public static String DIRECTORY_USER_PROG = MODULE_SIGN + "\\";
     public static String DIRECTORY_USER_PROG_LOG = MODULE_SIGN + "\\Log\\";
     public static String DIRECTORY_USER_PROG_SET = MODULE_SIGN + "\\Set\\";
