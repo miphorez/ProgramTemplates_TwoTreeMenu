@@ -4,7 +4,7 @@ import frm.gui.CreateLabel;
 import frm.treemenu.FrmTreeMenuCommand;
 import frm.treemenu.FrmTreeMenuParam;
 import main.menu.Menu;
-import main.menu.MenuNode;
+import frm.treemenu.MenuNode;
 import utils.gui.BoxLayoutUtils;
 
 import javax.swing.*;

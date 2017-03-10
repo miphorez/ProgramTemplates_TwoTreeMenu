@@ -2,7 +2,7 @@ package frm.param;
 
 import containers.FrmContainerProgram;
 import frm.FrmParam;
-import main.menu.MenuNode;
+import frm.treemenu.MenuNode;
 import frm.gui.CreateLineBorderBox;
 import frm.gui.CreateTextArea;
 import utils.gui.BoxLayoutUtils;

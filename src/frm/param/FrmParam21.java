@@ -4,7 +4,7 @@ import containers.FrmContainerProgram;
 import frm.FrmParam;
 import frm.gui.CreateLineBorderBox;
 import frm.gui.CreateTextArea;
-import main.menu.MenuNode;
+import frm.treemenu.MenuNode;
 import utils.gui.BoxLayoutUtils;
 
 import javax.swing.*;

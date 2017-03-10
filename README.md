@@ -15,3 +15,5 @@
 - jna
 - jssc
 - commons-io
+
+Описание программы в блоге: https://goo.gl/a11LCT

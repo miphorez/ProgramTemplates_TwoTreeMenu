@@ -1,4 +1,4 @@
-package main.menu;
+package frm.treemenu;
 
 
 import javax.swing.tree.DefaultMutableTreeNode;

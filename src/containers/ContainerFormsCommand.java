@@ -1,7 +1,7 @@
 package containers;
 
 import frm.command.*;
-import main.menu.MenuNode;
+import frm.treemenu.MenuNode;
 
 import javax.swing.*;
 import java.awt.*;

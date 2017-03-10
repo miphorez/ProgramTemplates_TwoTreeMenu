@@ -1,8 +1,6 @@
 package frm.treemenu;
 
 import containers.FrmContainerProgram;
-import main.menu.MenuNode;
-import main.menu.XMLTreeMenuLoader;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

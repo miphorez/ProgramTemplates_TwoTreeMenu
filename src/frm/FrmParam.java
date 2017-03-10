@@ -1,7 +1,7 @@
 package frm;
 
 import containers.FrmContainerProgram;
-import main.menu.MenuNode;
+import frm.treemenu.MenuNode;
 import main.xml.XMLSettingsParsing;
 
 import javax.swing.*;
