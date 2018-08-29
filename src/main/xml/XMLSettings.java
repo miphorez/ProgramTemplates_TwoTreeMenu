@@ -193,8 +193,8 @@ public class XMLSettings {
         rootElement.setAttribute("Log", "1");
         rootElement.setAttribute("LogLevel", "INFO");
         rootElement.setAttribute("Ver", utils.ConstantForAll.PROGRAM_VERSION);
-        rootElement.setAttribute("posXMain", "0");
-        rootElement.setAttribute("posYMain", "0");
+        rootElement.setAttribute("posXMain", "100");
+        rootElement.setAttribute("posYMain", "100");
         rootElement.setAttribute("widthMain", "400");
         rootElement.setAttribute("hightMain", "240");
         doc.appendChild(rootElement);

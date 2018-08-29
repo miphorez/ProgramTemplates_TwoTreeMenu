@@ -19,7 +19,7 @@ import static utils.UtilsForAll.getMainClass;
 public class GUIProgram {
     private static JFrame frameMain;
     private static Logger logger;
-
+    private static FrmContainerProgram frmContainerProgram;
 
     private static GUIProgram instance;
 
@@ -43,7 +43,7 @@ public class GUIProgram {
         frameMain.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         //создание главного контейнера настроек
-        FrmContainerProgram frmContainerProgram = new FrmContainerProgram(logger, frameMain);
+        frmContainerProgram = new FrmContainerProgram(logger, frameMain);
         frameMain.setContentPane(frmContainerProgram.jpMain);
 
         //контролируем кнопку выхода из программы
@@ -67,6 +67,7 @@ public class GUIProgram {
         xmlSettings.setRootAttrToSettingsDoc("posYMain", String.valueOf(frameBounds.y));
         xmlSettings.setRootAttrToSettingsDoc("widthMain", String.valueOf(frameBounds.width));
         xmlSettings.setRootAttrToSettingsDoc("hightMain", String.valueOf(frameBounds.height));
+        xmlSettings.setRootAttrToSettingsDoc("posDividerLocation", String.valueOf(frmContainerProgram.getSplitPane().getDividerLocation()));
     }
 
     private static void setPositionAndSizeFromXMLSettings() {
@@ -76,6 +77,7 @@ public class GUIProgram {
         int posYMainWindow = Integer.parseInt(xmlSettings.getRootAttr("posYMain", "0"));
         int widthMainWindow = Integer.parseInt(xmlSettings.getRootAttr("widthMain", "400"));
         int hightMainWindow = Integer.parseInt(xmlSettings.getRootAttr("hightMain", "240"));
+        int posDividerLocation = Integer.parseInt(xmlSettings.getRootAttr("posDividerLocation", "150"));
 
         frameMain.setBounds(posXMainWindow,
                 posYMainWindow,
@@ -85,6 +87,7 @@ public class GUIProgram {
         if ((posXMainWindow == 0) &&
                 (posYMainWindow == 0))
             frameMain.setLocationRelativeTo(null);
+        frmContainerProgram.getSplitPane().setDividerLocation(posDividerLocation);
     }
 
     private static void setCustomIconForProgram(JFrame frame) {

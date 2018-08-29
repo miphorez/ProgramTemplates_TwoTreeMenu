@@ -16,7 +16,10 @@ import static utils.ConstantForAll.DIRECTORY_USER_PROG;
 public class UtilsFilesAndFolders {
 
     private static String getDirectoryProgramDataForCfg777plus() {
-        return System.getenv("PROGRAMDATA") + "\\" + DIRECTORY_USER_PROG;
+        if (System.getenv("PROGRAMDATA") == null)
+            return System.getenv("APPDATA") + "\\" + DIRECTORY_USER_PROG;
+        else
+            return System.getenv("PROGRAMDATA") + "\\" + DIRECTORY_USER_PROG;
     }
 
     public static String getUserDirectoryMyDocuments(String myDir) {

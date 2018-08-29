@@ -120,7 +120,10 @@ public class UtilsLogger {
     }
 
     private static String getDirectoryProgramData() {
-        return System.getenv("PROGRAMDATA");
+        if (System.getenv("PROGRAMDATA") == null)
+            return System.getenv("APPDATA");
+        else
+            return System.getenv("PROGRAMDATA");
     }
 
     private static boolean setLoggerConsoleHandler(Logger logger) {

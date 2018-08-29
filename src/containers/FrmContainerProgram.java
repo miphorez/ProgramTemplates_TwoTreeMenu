@@ -21,6 +21,7 @@ public class FrmContainerProgram {
     public FrmTreeMenuCommand frmTreeMenuCommand;
     public FrmTreeMenuParam frmTreeMenuParam;
     private JPanel jpTreeMain;
+    private JSplitPane jSplitPane;
 
 
     private JFrame frameProgram;
@@ -35,7 +36,6 @@ public class FrmContainerProgram {
         this.frameProgram = frameProgram;
 
         jpMain = new JPanel(new BorderLayout());
-        JPanel jpProgramMain = BoxLayoutUtils.createHorizontalPanel();
 
         jpTreeMain = new JPanel(new GridLayout(1, 1));
         frmTreeMenuCommand = new FrmTreeMenuCommand(this);
@@ -45,13 +45,14 @@ public class FrmContainerProgram {
         jpContainerProgram = new JPanel(new CardLayout());
         jpContainerProgram.setBorder(new EmptyBorder(2, 5, 0, 5));
 
-        jpProgramMain.add(Box.createHorizontalStrut(5));
-        jpProgramMain.add(jpTreeMain);
-        jpProgramMain.add(jpContainerProgram);
+        jSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
+                jpTreeMain, jpContainerProgram);
+        jSplitPane.setBorder(new EmptyBorder(0, 5, 0, 5));
+        jSplitPane.	setDividerLocation(150);
 
         jpMain.add(createJpPanelInfo(), BorderLayout.NORTH);
         jpMain.add(createJpStatusGlobal(), BorderLayout.SOUTH);
-        jpMain.add(jpProgramMain, BorderLayout.CENTER);
+        jpMain.add(jSplitPane, BorderLayout.CENTER);
 
         addFormsToContainer();
         menu = new Menu(this);
@@ -105,9 +106,14 @@ public class FrmContainerProgram {
     }
 
     private JPanel createJpPanelInfo() {
-        JPanel jpPanelInfo = new JPanel(new FlowLayout());
+        JPanel jpPanelInfo = new JPanel(new GridLayout(1, 1));
+        jpPanelInfo.setBorder(BorderFactory.createCompoundBorder(
+                new EmptyBorder(5, 5, 5, 5),
+                new LineBorder(new Color(132, 132, 132))));
+        jpPanelInfo.setPreferredSize(new Dimension(-1, 42));
+
         JPanel jpListScripts = BoxLayoutUtils.createHorizontalPanel();
-        JLabel lListScriptTopInfo = new CreateLabel(0, 0, SwingConstants.RIGHT, SwingConstants.RIGHT,
+        JLabel lListScriptTopInfo = new CreateLabel(0, 0, SwingConstants.RIGHT, SwingConstants.CENTER,
                 "...");
 
         jpListScripts.add(Box.createHorizontalGlue());
@@ -151,5 +157,9 @@ public class FrmContainerProgram {
 
     public JFrame getFrameProgram() {
         return frameProgram;
+    }
+
+    public JSplitPane getSplitPane() {
+        return jSplitPane;
     }
 }
