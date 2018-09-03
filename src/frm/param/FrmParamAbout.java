@@ -16,6 +16,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import static utils.ConstantForAll.LS;
+import static utils.ConstantForAll.TXT_ABOUT;
+import static utils.ConstantForAll.TXT_HISTORY;
 import static utils.UtilsForAll.getFileNameResourceImgInTemp;
 import static utils.UtilsForAll.getMainClass;
 
@@ -73,8 +75,6 @@ public class FrmParamAbout extends FrmParam {
 
     @Override
     public void setViewItemParam(MenuNode itemNode) {
-        String TXT_ABOUT = "/res/txt/about.txt";
-        String TXT_HISTORY = "/res/txt/history.txt";
         readResourceFileToTextArea(TXT_ABOUT, taAbout);
         readResourceFileToTextArea(TXT_HISTORY, taHistory);
         jpMain.revalidate();

@@ -11,6 +11,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -23,6 +25,9 @@ public class FrmContainerProgram {
     private JPanel jpTreeMain;
     private JSplitPane jSplitPane;
 
+    EPanelMenu itemTypeMenu;
+    private int posDividerCommand;
+    private int posDividerParam;
 
     private JFrame frameProgram;
     public Menu menu;
@@ -34,6 +39,7 @@ public class FrmContainerProgram {
     public FrmContainerProgram(Logger logger, JFrame frameProgram) {
         this.logger = logger;
         this.frameProgram = frameProgram;
+        itemTypeMenu = EPanelMenu.PANEL_MENU_COMMAND;
 
         jpMain = new JPanel(new BorderLayout());
 
@@ -49,6 +55,23 @@ public class FrmContainerProgram {
                 jpTreeMain, jpContainerProgram);
         jSplitPane.setBorder(new EmptyBorder(0, 5, 0, 5));
         jSplitPane.	setDividerLocation(150);
+        jSplitPane.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent pce) {
+                JSplitPane sourceSplitPane = (JSplitPane) pce.getSource();
+                String propertyName = pce.getPropertyName();
+                if (propertyName.equals(JSplitPane.DIVIDER_LOCATION_PROPERTY)) {
+                    switch (itemTypeMenu) {
+                        case PANEL_MENU_COMMAND:
+                            posDividerCommand = sourceSplitPane.getDividerLocation();
+                            break;
+                        case PANEL_MENU_PARAM:
+                            posDividerParam = sourceSplitPane.getDividerLocation();
+                            break;
+                    }
+                }
+            }
+        });
 
         jpMain.add(createJpPanelInfo(), BorderLayout.NORTH);
         jpMain.add(createJpStatusGlobal(), BorderLayout.SOUTH);
@@ -69,10 +92,13 @@ public class FrmContainerProgram {
         goOpenFrmByNamePanel(namePanel);
         switch (EPanelMenu.getType(namePanel)) {
             case PANEL_MENU_COMMAND:
+                itemTypeMenu = EPanelMenu.PANEL_MENU_COMMAND;
                 jpContainerProgram.add(containerFormsCommand.jpContainer);
                 jpContainerProgram.remove(containerFormsParam.jpContainer);
+                jSplitPane.remove(jpTreeMain);
                 jpTreeMain.add(frmTreeMenuCommand.jpMain);
                 jpTreeMain.remove(frmTreeMenuParam.jpMain);
+                jSplitPane.setLeftComponent(jpTreeMain);
                 frmTreeMenuCommand.goOpenFrmForItemNode(frmTreeMenuCommand.getLastSelectedNode());
                 if (modeClickMouse) {
                     utils.UtilsForAll.goRobotMoveAndClick(frmTreeMenuCommand.getPointLastMouseClick());
@@ -82,10 +108,13 @@ public class FrmContainerProgram {
                 lStatusGlobal.setText(frmTreeMenuCommand.getLastSelectedNode().getDescriptionNodeHTML());
                 break;
             case PANEL_MENU_PARAM:
+                itemTypeMenu = EPanelMenu.PANEL_MENU_PARAM;
                 jpContainerProgram.add(containerFormsParam.jpContainer);
                 jpContainerProgram.remove(containerFormsCommand.jpContainer);
+                jSplitPane.remove(jpTreeMain);
                 jpTreeMain.add(frmTreeMenuParam.jpMain);
                 jpTreeMain.remove(frmTreeMenuCommand.jpMain);
+                jSplitPane.setLeftComponent(jpTreeMain);
                 frmTreeMenuParam.goOpenFrmForItemNode(frmTreeMenuParam.getLastSelectedNode());
                 if (modeClickMouse) {
                     utils.UtilsForAll.goRobotMoveAndClick(frmTreeMenuParam.getPointLastMouseClick());
@@ -95,6 +124,7 @@ public class FrmContainerProgram {
                 lStatusGlobal.setText(frmTreeMenuParam.getLastSelectedNode().getDescriptionNodeHTML());
                 break;
         }
+        setPosDividerLocation();
     }
 
     private void goOpenFrmByNamePanel(String namePanel) {
@@ -161,5 +191,32 @@ public class FrmContainerProgram {
 
     public JSplitPane getSplitPane() {
         return jSplitPane;
+    }
+
+    public void setPosDividerParam(int posDividerParam) {
+        this.posDividerParam = posDividerParam;
+    }
+
+    public void setPosDividerCommand(int posDividerCommand) {
+        this.posDividerCommand = posDividerCommand;
+    }
+
+    public int getPosDividerCommand() {
+        return posDividerCommand;
+    }
+
+    public int getPosDividerParam() {
+        return posDividerParam;
+    }
+
+    public void setPosDividerLocation() {
+        switch (itemTypeMenu) {
+            case PANEL_MENU_COMMAND:
+                jSplitPane.setDividerLocation(posDividerCommand);
+                break;
+            case PANEL_MENU_PARAM:
+                jSplitPane.setDividerLocation(posDividerParam);
+                break;
+        }
     }
 }

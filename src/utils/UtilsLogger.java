@@ -21,7 +21,7 @@ public class UtilsLogger {
         Logger logger = setupLogger();
 
         if (!XMLSettings.getInstance().isXMLSettingsFile()){
-            JOptionPane.showMessageDialog(null, "Ошибка файла настроек программы");
+            JOptionPane.showMessageDialog(null, "Версия программы меньше чем версия файла настроек.\nПрограмма будет закрыта.");
             return null;
         }
         XMLSettingsParsing xmlSettingsParsing = XMLSettingsParsing.getInstance();

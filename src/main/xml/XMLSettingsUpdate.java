@@ -41,8 +41,12 @@ public class XMLSettingsUpdate extends XMLSettings {
 
     private boolean moveParamsToTempFileSettings() {
         Document docXMLSettingsOld = getSettingsDoc();
-        Document docXMLSettingsNew = getSettingsDoc(getFileNameFromProgramDataDir(FILE_XML_PARAMS_TEMP));
-
+        Document docXMLSettingsNew = null;
+        String strFileNameNew = getFileNameFromProgramDataDir(FILE_XML_PARAMS_TEMP);
+        if (XMLSettings.getInstance().isXMLSettingsFile(strFileNameNew)){
+            docXMLSettingsNew = getSettingsDoc(strFileNameNew);
+        }
+        if (docXMLSettingsNew == null) return false;
         transferNodeAttr("", docXMLSettingsOld.getFirstChild(), docXMLSettingsNew);
         XMLSettingsParsing.getInstance().setAttr(docXMLSettingsNew, "Ver", ConstantForAll.PROGRAM_VERSION);
         return !saveNewSettinsFile(docXMLSettingsNew, getFileName());

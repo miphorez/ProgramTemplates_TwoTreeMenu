@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 public class ConstantForAll {
     public static boolean DEBUG = false;
-    public static String PROGRAM_VERSION = "0.0.1";
+    public static String PROGRAM_VERSION = "0.0.2";
     public static String PROGRAM_TITLE = DEBUG ? "Шаблон программы [DEBUG]" :
             "Шаблон программы";
     private static final String MODULE_SIGN = "ProgramTemplate";

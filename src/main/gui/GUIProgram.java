@@ -67,7 +67,8 @@ public class GUIProgram {
         xmlSettings.setRootAttrToSettingsDoc("posYMain", String.valueOf(frameBounds.y));
         xmlSettings.setRootAttrToSettingsDoc("widthMain", String.valueOf(frameBounds.width));
         xmlSettings.setRootAttrToSettingsDoc("hightMain", String.valueOf(frameBounds.height));
-        xmlSettings.setRootAttrToSettingsDoc("posDividerLocation", String.valueOf(frmContainerProgram.getSplitPane().getDividerLocation()));
+        xmlSettings.setRootAttrToSettingsDoc("posDividerCommand", String.valueOf(frmContainerProgram.getPosDividerCommand()));
+        xmlSettings.setRootAttrToSettingsDoc("posDividerParam", String.valueOf(frmContainerProgram.getPosDividerParam()));
     }
 
     private static void setPositionAndSizeFromXMLSettings() {
@@ -77,7 +78,10 @@ public class GUIProgram {
         int posYMainWindow = Integer.parseInt(xmlSettings.getRootAttr("posYMain", "0"));
         int widthMainWindow = Integer.parseInt(xmlSettings.getRootAttr("widthMain", "400"));
         int hightMainWindow = Integer.parseInt(xmlSettings.getRootAttr("hightMain", "240"));
-        int posDividerLocation = Integer.parseInt(xmlSettings.getRootAttr("posDividerLocation", "150"));
+        int posDividerCommand = Integer.parseInt(xmlSettings.getRootAttr("posDividerCommand", "150"));
+        int posDividerParam = Integer.parseInt(xmlSettings.getRootAttr("posDividerParam", "150"));
+        frmContainerProgram.setPosDividerCommand(posDividerCommand);
+        frmContainerProgram.setPosDividerParam(posDividerParam);
 
         frameMain.setBounds(posXMainWindow,
                 posYMainWindow,
@@ -87,7 +91,7 @@ public class GUIProgram {
         if ((posXMainWindow == 0) &&
                 (posYMainWindow == 0))
             frameMain.setLocationRelativeTo(null);
-        frmContainerProgram.getSplitPane().setDividerLocation(posDividerLocation);
+        frmContainerProgram.setPosDividerLocation();
     }
 
     private static void setCustomIconForProgram(JFrame frame) {

@@ -18,7 +18,7 @@ public class Main {
 
         setSwingForShowGUI();
         Logger logger = setupLoggerAndSettings();
-        if (logger == null) {exitFromProgram(); return;}
+        if (logger == null) {exitFromProgram(-1); return;}
 
         if (utils.ConstantForAll.DEBUG) logger.info("DEBUG_MODE");
 

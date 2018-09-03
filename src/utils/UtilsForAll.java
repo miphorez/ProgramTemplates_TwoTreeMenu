@@ -127,10 +127,14 @@ public class UtilsForAll {
     }
 
     public static void exitFromProgram() {
-        GUIProgram.savePosAndSizeMain();
+        exitFromProgram(0);
+    }
+
+    public static void exitFromProgram(int intErr) {
+        if (intErr == 0) GUIProgram.savePosAndSizeMain();
         File dirFile = new File(String.valueOf(getTempDirectory(DIRECTORY_TEMP)));
         delStacklessDirAndFiles(dirFile);
-        System.exit(0);
+        System.exit(intErr);
     }
 
     public static String getPrefIntAsString(String prefName, int presetInt) {

@@ -53,14 +53,20 @@ public class XMLSettings {
     }
 
     public boolean isXMLSettingsFile() {
-        if (!Files.exists(Paths.get(strFileName), LinkOption.NOFOLLOW_LINKS)) {
-            return createXMLSettingsFile() && Files.exists(Paths.get(strFileName), LinkOption.NOFOLLOW_LINKS);
+        return isXMLSettingsFile(strFileName) && controlVerXMLSettingsFile();
+    }
+
+    public boolean isXMLSettingsFile(String strName) {
+        if (!Files.exists(Paths.get(strName), LinkOption.NOFOLLOW_LINKS)) {
+            return createXMLSettingsFile(strName) && Files.exists(Paths.get(strName), LinkOption.NOFOLLOW_LINKS);
         }
-        return controlVerXMLSettingsFile();
+        return true;
     }
 
     private boolean controlVerXMLSettingsFile() {
-        TVersion tVersion = new TVersion(XMLSettingsParsing.getInstance().getRootAttrFromSettingsDoc("Ver"));
+        XMLSettingsParsing xmlSettingsParsing = XMLSettingsParsing.getInstance();
+        String strVersion = xmlSettingsParsing.getRootAttrFromSettingsDoc("Ver");
+        TVersion tVersion = new TVersion(strVersion);
         loggerInfo("Версия файла настроек: "+ tVersion.getStrValueVer());
         if (tVersion.isEqVerLo(ConstantForAll.PROGRAM_VERSION)) {
             loggerInfo("Ошибка! Версия программы ниже, чем версия файла настроек");
@@ -163,14 +169,14 @@ public class XMLSettings {
         return itemNodeList;
     }
 
-    private boolean createXMLSettingsFile() {
+    private boolean createXMLSettingsFile(String strName) {
         try {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
 
             DOMSource source = new DOMSource(createXMLFileParams());
 
-            StreamResult result = new StreamResult(new File(strFileName));
+            StreamResult result = new StreamResult(new File(strName));
 
             if (transformer != null) {
                 transformer.transform(source, result);
