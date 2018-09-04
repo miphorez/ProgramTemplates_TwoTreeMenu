@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import static utils.ConstantForAll.*;
 import static utils.ConstantForAll.ICO_PNG_64;
+import static utils.ConstantForAll.PROGRAM_TITLE_DEBUG;
 import static utils.UtilsForAll.exitFromProgram;
 import static utils.UtilsForAll.getMainClass;
 
@@ -38,7 +39,8 @@ public class GUIProgram {
     private static void createGUI() {
         logger.info("== Запуск окна программы ==");
         frameMain = new JFrame();
-        String strTitle = PROGRAM_TITLE+" (v."+ ConstantForAll.PROGRAM_VERSION+")";
+        String strTitle = (DEBUG ? PROGRAM_TITLE_DEBUG : PROGRAM_TITLE) +
+                " (v."+ ConstantForAll.PROGRAM_VERSION+")";
         frameMain.setTitle(strTitle);
         frameMain.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 

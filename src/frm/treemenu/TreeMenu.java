@@ -16,6 +16,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -149,6 +150,7 @@ public abstract class TreeMenu {
 
         jtreeMenu.setCellRenderer(setNewIconForTreeNode());
         expandAllNodes();
+        setNumNodeAllNodes();
     }
 
     private void expandAllNodes(){
@@ -161,6 +163,26 @@ public abstract class TreeMenu {
                 TreePath path = new TreePath(nodes);
                 jtreeMenu.makeVisible(path);
             }
+        }
+    }
+
+    private void setNumNodeAllNodes() {
+        MenuNode root = xmlTreeMenuLoader.getRootMainMenu();
+        Enumeration e;
+        e = root.preorderEnumeration();
+        int index = 0;
+        while (e.hasMoreElements()) {
+            MenuNode menuNode = (MenuNode) e.nextElement();
+            if (!menuNode.getNameCmd().toLowerCase().contains("root")) {
+                menuNode.setTreePath(new TreePath(menuNode));
+                menuNode.setNumNode(index);
+//                System.out.println(menuNode.getTextNode() +
+//                        " - " + menuNode.getTreePath().toString() +
+//                        " [" + menuNode.getNumNode() + "]"
+//                );
+                index++;
+            } else  menuNode.setNumNode(-1);
+
         }
     }
 

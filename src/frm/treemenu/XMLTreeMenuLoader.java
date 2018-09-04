@@ -73,8 +73,7 @@ public class XMLTreeMenuLoader {
                     Boolean.parseBoolean(attrs.getValue("allowsChildren")),
                     attrs.getValue("namePanel"),
                     attrs.getValue("name"),
-                    attrs.getValue("descriptionNode"),
-                    attrs.getValue("numNode")
+                    attrs.getValue("descriptionNode")
             );
             menuStorage.put(name, menuNode);
             rootMainMenu = menuNode;
@@ -87,8 +86,7 @@ public class XMLTreeMenuLoader {
                     Boolean.parseBoolean(attrs.getValue("allowsChildren")),
                     attrs.getValue("namePanel"),
                     attrs.getValue("name"),
-                    attrs.getValue("descriptionNode"),
-                    attrs.getValue("numNode")
+                    attrs.getValue("descriptionNode")
             );
             // добавляем меню корневому
             menuStorage.put(name, menuNode);
@@ -105,8 +103,7 @@ public class XMLTreeMenuLoader {
                     Boolean.parseBoolean(attrs.getValue("allowsChildren")),
                     attrs.getValue("namePanel"),
                     attrs.getValue("name"),
-                    attrs.getValue("descriptionNode"),
-                    attrs.getValue("numNode")
+                    attrs.getValue("descriptionNode")
             );
             menuStorage.put(name, menuNode);
             MenuNode lastNode = (MenuNode)menus.getFirst();

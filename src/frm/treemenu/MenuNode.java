@@ -2,24 +2,24 @@ package frm.treemenu;
 
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 
 public class MenuNode extends DefaultMutableTreeNode {
-    String namePanel = "";
-    String nameCmd = "";
-    String descriptionNode = "";
-    String numNode = "";
+    private String namePanel;
+    private String nameCmd;
+    private String descriptionNode;
+    private int numNode;
+    private TreePath treePath;
 
     public MenuNode(Object userObject, boolean allowsChildren,
                     String namePanel,
                     String nameCmd,
-                    String descriptionNode,
-                    String numNode
+                    String descriptionNode
     ) {
         super(userObject, allowsChildren);
         this.namePanel = namePanel;
         this.nameCmd = nameCmd;
         this.descriptionNode = descriptionNode;
-        this.numNode = numNode;
     }
 
     public String getTextNode() {
@@ -42,7 +42,19 @@ public class MenuNode extends DefaultMutableTreeNode {
         return "<html>"+descriptionNode;
     }
 
+    public void setNumNode(int numNode) {
+        this.numNode = numNode;
+    }
+
     public int getNumNode() {
-        return Integer.parseInt(numNode);
+        return numNode;
+    }
+
+    public TreePath getTreePath() {
+        return treePath;
+    }
+
+    public void setTreePath(TreePath treePath) {
+        this.treePath = treePath;
     }
 }
